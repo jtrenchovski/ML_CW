@@ -7,7 +7,7 @@ n_hidd_states = 9
 n_emmisions = 3  # number of rewards
 
 def get_neighbours(state):
-    x, y = state//3, state%3  
+    x, y = state // 3, state % 3  
     neighbours = []
     # Up neighbour
     if x > 0:
@@ -35,7 +35,6 @@ model.fit(observations)
 print("Start probabilities: ", model.startprob_)
 print("Transition distribution: ", model.transmat_)
 print("Emission distribution: ", model.emissionprob_)
-print("Likelihood of observations: ", model.score(observations))
 
 transmat_diff = np.abs(model.transmat_- transmat_true)
 average_trans_diff = np.mean(transmat_diff)
@@ -47,9 +46,7 @@ model_known_trans = hmm.CategoricalHMM(n_components=n_hidd_states, n_features=3,
 model_known_trans.transmat_ = transmat_true
 model_known_trans.fit(observations)
 
-print("Model with known transition probabilites")
-print("Start probabilities: ", model_known_trans.startprob_)
-print("Transition distribution: ", model_known_trans.transmat_)
-print("Emission distribution: ",model_known_trans.emissionprob_)
-print("Likelihood of observations: ", model_known_trans.score(observations))
+print(model_known_trans.startprob_)
+print(model_known_trans.transmat_)
+print(model_known_trans.emissionprob_)
 

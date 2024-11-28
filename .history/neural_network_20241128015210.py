@@ -10,7 +10,8 @@ from sklearn.datasets import make_moons
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
-
+from torch import nn
+from torch import optim
 
 data_train = np.loadtxt("regression_train.txt") 
 data_test = np.loadtxt("regression_test.txt") 

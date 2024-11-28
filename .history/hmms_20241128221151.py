@@ -7,7 +7,7 @@ n_hidd_states = 9
 n_emmisions = 3  # number of rewards
 
 def get_neighbours(state):
-    x, y = state//3, state%3  
+    x, y = state // 3, state % 3  
     neighbours = []
     # Up neighbour
     if x > 0:
